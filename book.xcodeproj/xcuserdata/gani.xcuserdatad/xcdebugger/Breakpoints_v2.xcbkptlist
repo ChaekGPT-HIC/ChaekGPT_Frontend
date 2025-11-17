@@ -50,36 +50,6 @@
             endingLineNumber = "111"
             landmarkName = "performSearch()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "28107EFF-0FDD-496A-832F-FD580ED94485 - 94e27297bb360b8b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "book.SearchView.performSearch() -&gt; ()"
-                  moduleName = "book.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gani/Desktop/4/%E1%84%8C%E1%85%A9%E1%86%AF%E1%84%91%E1%85%B3/book/book/SearchView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "112"
-                  endingLineNumber = "112">
-               </Location>
-               <Location
-                  uuid = "28107EFF-0FDD-496A-832F-FD580ED94485 - 94e27297bb360b8b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "book.SearchView.performSearch() -&gt; ()"
-                  moduleName = "book.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gani/Desktop/4/%E1%84%8C%E1%85%A9%E1%86%AF%E1%84%91%E1%85%B3/book/book/SearchView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "112"
-                  endingLineNumber = "112">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
