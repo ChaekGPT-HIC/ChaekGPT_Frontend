@@ -91,7 +91,7 @@ struct SearchResultView: View {
         }
     }
 
-    // 🔥 순차 페이지 로딩
+    // 순차 페이지 로딩
     func fetchPageSequentially(query: String, emotion: String, page: Int) {
         if page > 5 {
             // 모든 페이지 완료
@@ -119,7 +119,7 @@ struct SearchResultView: View {
         URLSession.shared.dataTask(with: request) { data, response, error in
 
             if let error = error {
-                print("❌ Error on page \(page):", error)
+                print("Error on page \(page):", error)
                 // 다음 페이지로 넘어감 (앱 안 멈춤)
                 fetchPageSequentially(query: query, emotion: emotion, page: page + 1)
                 return
@@ -149,7 +149,7 @@ struct SearchResultView: View {
                 }
             }
 
-            // 🔥 다음 페이지로 이동
+            // 다음 페이지로 이동
             fetchPageSequentially(query: query, emotion: emotion, page: page + 1)
 
         }.resume()
