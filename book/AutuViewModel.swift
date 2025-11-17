@@ -38,7 +38,6 @@ class AuthViewModel: ObservableObject {
     }
 
     
-    // MARK: - 이메일 로그인
     func loginWithEmail(email: String, password: String, completion: @escaping (Bool) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if let error = error {
@@ -77,8 +76,6 @@ class AuthViewModel: ObservableObject {
         }
     }
 
-    
-    // MARK: - Firestore 유저 정보 새로고침
     func refreshUserInfo() {
         guard let uid = userId else { return }
         
@@ -93,7 +90,6 @@ class AuthViewModel: ObservableObject {
     }
 
     
-    // MARK: - 로그아웃
     func logout() {
         do {
             try Auth.auth().signOut()
@@ -107,7 +103,6 @@ class AuthViewModel: ObservableObject {
     }
 
     
-    // MARK: - 회원탈퇴
     func withdraw() {
         guard provider == "email" else {
             self.alertMessage = "현재 카카오 계정은 삭제 기능이 없습니다."
@@ -129,7 +124,6 @@ class AuthViewModel: ObservableObject {
     }
 
     
-    // MARK: - Firestore 사용자 삭제
     private func deleteUserFromFirestore(uid: String? = nil, email: String? = nil) {
         if let uid = uid, !uid.isEmpty {
             let q = db.collection("users").whereField("uid", isEqualTo: uid)
@@ -167,8 +161,7 @@ class AuthViewModel: ObservableObject {
         resetLocalAuthState()
     }
 
-    
-    // MARK: - 하위 컬렉션 삭제
+
     private func deleteSubcollections(for docRef: DocumentReference, completion: @escaping () -> Void) {
         let subcollections = ["bookshelf"]
         let group = DispatchGroup()
@@ -188,7 +181,6 @@ class AuthViewModel: ObservableObject {
     }
 
     
-    // MARK: - 문서 직접 삭제
     private func deleteDocumentByDocID(_ docID: String) {
         db.collection("users").document(docID).delete { _ in
             self.resetLocalAuthState()
@@ -203,8 +195,7 @@ class AuthViewModel: ObservableObject {
         }
     }
 
-    
-    // MARK: - 로컬 상태 초기화
+
     private func resetLocalAuthState() {
         DispatchQueue.main.async {
             self.isLoggedIn = false
