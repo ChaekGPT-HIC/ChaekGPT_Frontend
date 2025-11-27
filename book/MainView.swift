@@ -139,9 +139,6 @@ struct MainView: View {
                 .padding(.horizontal)
             }
         }
-        .onAppear {
-            viewModel.fetchAllBooks()
-        }
         .toolbar(.hidden, for: .navigationBar)
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
