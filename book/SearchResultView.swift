@@ -47,12 +47,7 @@ struct SearchResultView: View {
                             spacing: 16
                         ) {
                             ForEach(pagedResults) { book in
-                                NavigationLink {
-                                    if let firebaseBook = viewModel.allBooks.first(where: { $0.isbn13 == book.isbn13 }) {
-                                        BookDetailView(viewModel: viewModel, book: firebaseBook)
-                                    } else {
-                                        BookDetailView(viewModel: viewModel, book: book)
-                                    }
+                                BookDetailView(viewModel: viewModel, book: book)
                                 } label: {
                                     BookItemView(book: book)
                                 }
