@@ -119,9 +119,8 @@ struct SearchView: View {
         UserDefaults.standard.set(recentSearches, forKey: "RecentSearches")
         
         lastQuery = searchText
-        callNgrokAPI(query: searchText)
-        
-        // navigateToResults = true
+        navigateToResults = true
+        callNgrokAPI(query: searchText)  
         searchText = ""
     }
     
