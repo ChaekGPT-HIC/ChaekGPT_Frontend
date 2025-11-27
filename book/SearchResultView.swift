@@ -5,6 +5,7 @@ struct SearchResultView: View {
     @State private var pagedResults: [Book] = []
     @State private var isLoading = true
     @State private var currentPage: Int = 1
+    @State private var hasLoaded = false
 
     @ObservedObject var viewModel: BookViewModel
     @Environment(\.presentationMode) var presentationMode
@@ -83,6 +84,9 @@ struct SearchResultView: View {
         }
         .navigationTitle("검색결과")
         .onAppear {
+            guard !hasLoaded else { return }
+                        hasLoaded = true
+            
             if viewModel.allBooks.isEmpty {
                 viewModel.fetchAllBooks()
             }
@@ -91,7 +95,7 @@ struct SearchResultView: View {
         }
     }
 
-    // 🔥 순차 페이지 로딩
+    // 순차 페이지 로딩
     func fetchPageSequentially(query: String, emotion: String, page: Int) {
         if page > 5 {
             // 모든 페이지 완료
@@ -105,6 +109,8 @@ struct SearchResultView: View {
 
         let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
 
+        // https://katia-surbased-lester.ngrok-free.dev 민서
+        // https://wailful-appreciatingly-juli.ngrok-free.dev 현지
         guard let url = URL(string:
             "https://wailful-appreciatingly-juli.ngrok-free.dev/v1/recommend?q=\(encodedQuery)&emotion=\(emotion)&page=\(page)&page_size=9"
         ) else {
@@ -149,7 +155,7 @@ struct SearchResultView: View {
                 }
             }
 
-            // 🔥 다음 페이지로 이동
+            // 다음 페이지로 이동
             fetchPageSequentially(query: query, emotion: emotion, page: page + 1)
 
         }.resume()

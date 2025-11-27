@@ -65,7 +65,7 @@ struct SearchView: View {
                                         searchText = term
                                         performSearch()
                                         selectedSearch = term
-                                        navigateToResults = true
+                                        // navigateToResults = true
                                     }
                                 
                                 Spacer()
@@ -121,12 +121,14 @@ struct SearchView: View {
         lastQuery = searchText
         callNgrokAPI(query: searchText)
         
-        navigateToResults = true
+        // navigateToResults = true
         searchText = ""
     }
     
     // ngrok API 요청
     func callNgrokAPI(query: String) {
+        // https://katia-surbased-lester.ngrok-free.dev
+        // https://wailful-appreciatingly-juli.ngrok-free.dev
         guard let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
               let url = URL(string: "https://wailful-appreciatingly-juli.ngrok-free.dev/analyze?query=\(encodedQuery)") else {
             print("잘못된 URL")
