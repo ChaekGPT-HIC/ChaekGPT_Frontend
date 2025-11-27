@@ -19,8 +19,12 @@ class BookViewModel: ObservableObject {
     private let emotionTagKey = "savedEmotionTag"
     private let emotionBooksKey = "savedEmotionBooks"
     private let emotionDateKey = "emotionRecommendationDate"
+
+    init() {
+            fetchAllBooks()   // 앱 실행 시 1번만 실행
+    }
     
-    // MARK: - 전체 도서 불러오기
+    // 전체 도서 불러오기
     func fetchAllBooks() {
         db.collection("books").getDocuments { snapshot, error in
             if let error = error {
